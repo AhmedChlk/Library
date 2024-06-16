@@ -203,3 +203,27 @@ dialog.show {
 dialog.hide {
     animation: fadeOut 0.5s forwards;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .library-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem; /* Ajout de padding pour l'espace intérieur */
+    }
+    
+    .book-card {
+        width: 70%;
+        max-width: 300px;
+        padding: 1.5rem;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .book-card p {
+        margin: 0; /* Suppression des marges par défaut pour les paragraphes */
+    }
+}

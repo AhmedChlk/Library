@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <h2 class="Logo">Library</h2>
+            <button class="add-book">Add Book</button>
+        </nav>
+        <div class="add-book-form">
+            <dialog id="modal">
+                <div class="close-modal-container">
+                    <h5 class="modal-title">Add A Book </h5>
+                    <button class="close-modal-btn">X</button>
+                </div>
+                <form method="dialog">
+                    <input type="text" name="title" id="title" placeholder="title" required>
+                    <input type="text" name="author" id="author" placeholder="author" required>
+                    <input type="number" name="nbrPage" id="nbrPage" min="1" placeholder="number of page" required>
+                    <div class="checkbox">
+                        <label for="read">Already read ?</label>
+                        <input type="checkbox" name="read" id="read">
+                    </div>
+                    <input type="submit" value="Add">
+                </form>
+            </dialog>
+        </div>
+        <div class="library-container">
+               
+        </div>
+        <footer>
+            <p>Copyright © 2024 Ahmed Choulak</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

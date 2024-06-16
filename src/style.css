@@ -1,0 +1,193 @@
+/* Styles globaux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Manrope", sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    height: 100vh;
+}
+
+/* Styles pour la barre de navigation */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .Logo {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-left: 22px;
+    color: #333;
+    cursor: default;
+}
+
+.navbar .Logo:hover {
+    font-weight: 900;
+    transition: font-weight 0.3s ease;
+}
+
+.navbar .add-book {
+    font-size: 1rem;
+    margin-right: 32px;
+    padding: 0.5rem 1rem;
+    border: solid #333 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    caret-color: transparent;
+    transition: background-color 0.3s ease, font-weight 0.3s ease;
+}
+
+.navbar .add-book:hover {
+    background-color: #e1e1e1;
+    font-weight: 600;
+}
+
+/* Styles pour le modal */
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+
+/* Animations pour le modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+}
+
+dialog.show {
+    animation: fadeIn 0.5s forwards;
+}
+
+dialog.hide {
+    animation: fadeOut 0.5s forwards;
+}
+
+/* Styles formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form input, form .checkbox {
+    padding: 0.5rem;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+}
+
+form .checkbox {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2px;
+    gap: 0.5rem;
+}
+
+form input[type="submit"] {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input::placeholder {
+    font-size: 1rem;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2d2d2d;
+}
+
+/* Styles pour les cartes de livres */
+.library-container {
+    height: 80%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 1rem;
+}
+
+.book-card {
+    padding: 0.5rem 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.remove-card-btn {
+    background: transparent;
+    border: none;
+    background-color: #f0eef1;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-card-btn:hover {
+    background-color: #d8d7d8;
+}
+
+.read {
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.redbtn {
+    background-color: #c51209;
+}
+
+.greenbtn {
+    background-color: #0ca60c;
+}
+
+/* Styles pour le pied de page */
+footer {
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}

@@ -1,9 +1,11 @@
-/* Styles globaux */
+/* Reset des marges, padding et autres styles de base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 body {
@@ -11,10 +13,11 @@ body {
 }
 
 .container {
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Styles pour la barre de navigation */
 .navbar {
     display: flex;
     align-items: center;
@@ -29,11 +32,7 @@ body {
     font-size: 2.5rem;
     margin-left: 22px;
     color: #333;
-    cursor: default;
-}
-
-.navbar .Logo:hover {
-    font-weight: 900;
+    cursor: pointer;
     transition: font-weight 0.3s ease;
 }
 
@@ -41,19 +40,38 @@ body {
     font-size: 1rem;
     margin-right: 32px;
     padding: 0.5rem 1rem;
-    border: solid #333 2px;
+    border: 2px solid #333;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #e1e1e1;
+    font-weight: 600;
     caret-color: transparent;
     transition: background-color 0.3s ease, font-weight 0.3s ease;
 }
 
-.navbar .add-book:hover {
-    background-color: #e1e1e1;
-    font-weight: 600;
+.close-modal-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-/* Styles pour le modal */
+.modal-title {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.close-modal-btn {
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    color: #ff2222;
+    caret-color: transparent;
+    transition: font-weight 0.3s ease;
+}
+
 dialog {
     position: fixed;
     top: 50%;
@@ -68,48 +86,16 @@ dialog {
     background-color: #ffffff;
 }
 
-
-/* Animations pour le modal */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-    to {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-    }
-}
-
-dialog.show {
-    animation: fadeIn 0.5s forwards;
-}
-
-dialog.hide {
-    animation: fadeOut 0.5s forwards;
-}
-
-/* Styles formulaire */
 form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-form input, form .checkbox {
+form input,
+form .checkbox {
     padding: 0.5rem;
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
@@ -124,7 +110,7 @@ form input[type="submit"] {
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
-    background-color: #333;
+    background-color: #2d2d2d;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -134,18 +120,14 @@ form input::placeholder {
     font-size: 1rem;
 }
 
-form input[type="submit"]:hover {
-    background-color: #2d2d2d;
-}
-
-/* Styles pour les cartes de livres */
 .library-container {
-    height: 80%;
+    flex: 1;
     padding: 2rem;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     gap: 1rem;
+    overflow-y: auto;
 }
 
 .book-card {
@@ -157,16 +139,11 @@ form input[type="submit"]:hover {
 }
 
 .remove-card-btn {
-    background: transparent;
+    background: #f0eef1;
     border: none;
-    background-color: #f0eef1;
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.remove-card-btn:hover {
-    background-color: #d8d7d8;
 }
 
 .read {
@@ -184,10 +161,45 @@ form input[type="submit"]:hover {
     background-color: #0ca60c;
 }
 
-/* Styles pour le pied de page */
 footer {
-    height: 9vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    background-color: #f8f8f8;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+/* Animation pour faire apparaître le dialog */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Animation pour faire disparaître le dialog */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+}
+
+/* Classes pour déclencher les animations */
+dialog.show {
+    animation: fadeIn 0.5s forwards;
+}
+
+dialog.hide {
+    animation: fadeOut 0.5s forwards;
 }

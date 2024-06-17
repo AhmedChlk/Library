@@ -173,6 +173,8 @@ form input::placeholder {
     text-align: center;       
     padding: 20px 0;          
     width: 100%;              
+    position: fixed;          /* Fixer le footer en bas de l'écran */
+    bottom: 0;                /* Aligner le footer en bas de la page */
 }
 
 

@@ -173,10 +173,9 @@ form input::placeholder {
     text-align: center;       
     padding: 20px 0;          
     width: 100%;              
-    position: fixed;          /* Fixer le footer en bas de l'écran */
-    bottom: 0;                /* Aligner le footer en bas de la page */
+    position: absolute;       /* Changement de fixed à absolute */
+    bottom: 0;                /* Maintient le footer en bas */
 }
-
 
 .footer p {
     margin: 0;                
@@ -199,7 +198,6 @@ form input::placeholder {
     font-size: 24px;          /* Taille de l'icône */
     transition: color 0.3s;   /* Transition pour effet de survol */
 }
-
 
 /* Effet de survol pour l'icône GitHub */
 .github-link:hover i {
@@ -241,11 +239,16 @@ dialog.hide {
 
 /* Styles pour les petits écrans */
 @media only screen and (max-width: 600px) {
+    .container {
+        flex-direction: column; /* Ajustement pour empêcher l'overflow du contenu */
+    }
+    
     .library-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem; /* Ajout de padding pour l'espace intérieur */
+        padding-bottom: 80px; /* Ajout d'un espace bas pour le footer */
+    }
+    
+    .navbar {
+        padding: 1rem; /* Réduction du padding de la navbar pour économiser l'espace */
     }
     
     .book-card {

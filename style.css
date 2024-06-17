@@ -10,14 +10,18 @@
 
 body {
     height: 100vh;
-}
-
-.container {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Style de la barre de navigation */
 .navbar {
     display: flex;
     align-items: center;
@@ -49,6 +53,7 @@ body {
     transition: background-color 0.3s ease, font-weight 0.3s ease;
 }
 
+/* Style du modal pour ajouter un livre */
 .close-modal-container {
     display: flex;
     justify-content: space-between;
@@ -161,14 +166,42 @@ form input::placeholder {
     background-color: #0ca60c;
 }
 
-footer {
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f8f8;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+/* Style du footer */
+.footer {
+    background-color: #484848; 
+    color: #f1f1f1;           
+    text-align: center;       
+    padding: 20px 0;          
+    width: 100%;              
+}
+
+
+.footer p {
+    margin: 0;                
+    font-size: 14px;          
+    line-height: 1.5;         
+    display: inline-block;    
+}
+
+/* Style du lien GitHub */
+.github-link {
+    color: #f1f1f1;          
+    margin-left: 10px;       
+    text-decoration: none;    
+    display: inline-block;   
+    vertical-align: middle;   
+}
+
+/* Style de l'icône GitHub */
+.github-link i {
+    font-size: 24px;          /* Taille de l'icône */
+    transition: color 0.3s;   /* Transition pour effet de survol */
+}
+
+
+/* Effet de survol pour l'icône GitHub */
+.github-link:hover i {
+    color: #6e5494;           /* Changer la couleur au survol */
 }
 
 /* Animation pour faire apparaître le dialog */
@@ -204,7 +237,7 @@ dialog.hide {
     animation: fadeOut 0.5s forwards;
 }
 
-
+/* Styles pour les petits écrans */
 @media only screen and (max-width: 600px) {
     .library-container {
         display: flex;
@@ -224,6 +257,6 @@ dialog.hide {
     }
     
     .book-card p {
-        margin: 0; /* Suppression des marges par défaut pour les paragraphes */
+        margin: 0;
     }
 }
